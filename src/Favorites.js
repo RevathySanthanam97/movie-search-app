@@ -3,7 +3,6 @@ import MovieCards from "./MovieCards";
 import { FavoritesEmpty, FavoriteEmptyImg } from "./styledComponents";
 import PropTypes from "prop-types";
 const Favorites = ({ data, handleFavClick,handlePrevClick, favHeart }) => {
-  console.log(data)
   return (
     <div>
       {data != "" ? (

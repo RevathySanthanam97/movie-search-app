@@ -28,6 +28,12 @@ const App = () => {
   const [sortType, setSortType] = useState("title");
   // sort and storted array
 
+  // Preview display
+  const [isPreview, SetIsPreview] = useState(false);
+  const [previewMovie, SetPreviewMovie] = useState([]);
+  // Preview display
+
+
   const handleSort = (type) => {
     const sortProperty = type;
     let sorted;
@@ -45,8 +51,14 @@ const App = () => {
     setMovies(sorted);
   };
 
-  const handlePrevClick = (item, index) => {
-    console.log(item, index)
+  const handlePrevClick = (item) => {
+    if(isPreview === true){
+      SetIsPreview(false)
+    } 
+    else{
+      SetIsPreview(true)
+    }
+    SetPreviewMovie(item)
   }
 
   const handleFavClick = (item, index) => {
@@ -59,7 +71,6 @@ const App = () => {
       if (prevAdded.indexOf(item) !== -1) {
         prevAdded = prevAdded.filter((task) => task !== item);
         prevFavState = prevFavState.filter((el) => el !== index);
-        console.log(prevFavState);
         setFavItem(prevAdded);
         setFavHeart(prevFavState);
       } else {
@@ -102,7 +113,7 @@ const App = () => {
             </NavLink>
             <NavLink
               className={activeLink === "favorites" ? "activeLink" : ""}
-              onClick={() => setActiveLink("favorites")}
+              onClick={() => (setActiveLink("favorites"), setQuery(''))}
               to="/favorites"
             >
               Favorites
@@ -134,14 +145,8 @@ const App = () => {
               />
             }
           />
-           <Route
-            path="/preview"
-            element={
-              <Preview state={{data: []}}
-              />
-            }
-          />
         </Routes>
+        <Preview activatePreview={isPreview === true ? "active" : "inactive"} handlePrevClick={handlePrevClick} movie={previewMovie} />
       </AppContainer>
     </BrowserRouter>
   );

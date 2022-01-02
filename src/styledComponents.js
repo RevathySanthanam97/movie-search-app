@@ -192,6 +192,11 @@ export const PreviewContainer = styled.div`
     height: calc(100vh - 100px);
     margin: 50px;
     box-shadow: 0 0 0 150px #091821;
+    display: none;
+    position: fixed;
+    &.active{
+      display: block;
+    }
     .previewDetails{
       display: flex;
       flex-direction: column;

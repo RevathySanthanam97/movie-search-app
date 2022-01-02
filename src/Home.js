@@ -2,7 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import MovieCards from "./MovieCards";
 import PropTypes from "prop-types";
-const Home = ({ handleSearch, data, handleFavClick, favHeart, handleSort }) => {
+const Home = ({ handleSearch, data, handleFavClick, handlePrevClick, favHeart, handleSort }) => {
   return (
     <div>
       <div className="dummyText">
@@ -27,6 +27,7 @@ const Home = ({ handleSearch, data, handleFavClick, favHeart, handleSort }) => {
         data={data}
         favHeart={favHeart}
         handleFavClick={handleFavClick}
+        handlePrevClick={handlePrevClick}
       />
     </div>
   );
@@ -36,6 +37,7 @@ Home.propTypes = {
   data: PropTypes.array,
   handleSearch: PropTypes.func,
   handleFavClick: PropTypes.func,
+  handlePrevClick: PropTypes.func,
   favHeart: PropTypes.array,
 };
 

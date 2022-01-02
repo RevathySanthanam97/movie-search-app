@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import {
   MovieCard,
   ButtonsContainer,
@@ -13,7 +12,9 @@ const MovieCards = ({ data, handleFavClick, handlePrevClick, favHeart }) => {
   const onFavClick = (item, index) => {
     handleFavClick(item, index);
   };
-
+  const onPrevClick = (item) => {
+    handlePrevClick(item);
+  };
 
   return (
     <MovieCard>
@@ -36,18 +37,13 @@ const MovieCards = ({ data, handleFavClick, handlePrevClick, favHeart }) => {
               <b>Rating</b> {item.vote_average}
             </p> */}
             <ButtonsContainer>
-              <Buttons>
-                <Link to={`/preview`} state={{ data: item }}>
+              <Buttons onClick={() => onPrevClick(item)}>
                   Preview <i className="far fa-eye"></i>
-                </Link>
               </Buttons>
               <Buttons
                 className={favHeart.includes(item.id) ? "active" : ""}
                 onClick={() => onFavClick(item, item.id)}
               >
-                {favHeart.includes(item.id)
-                  ? console.log(favHeart, item.id)
-                  : ""}
                 {favHeart.includes(item.id) ? "Favorites" : "Add to Fav"}
                 <i className="fas fa-heart"></i>
               </Buttons>
