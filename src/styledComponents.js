@@ -48,7 +48,6 @@ export const AppContainer = styled.div`
     top: 0px;
     left: 0px;
     z-index: -1;
-    background-repeat: no-repeat;
   }
 `;
 
@@ -67,11 +66,17 @@ export const FeaturesBar = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
+  @media (max-width: 600px){
+    flex-direction: column;
+  }
 `;
 export const SortContainer = styled.div`
   width: 20%;
   margin: 0 20px;
-
+  @media (max-width: 600px){
+    margin-top: 20px;
+    width: calc(100% - 40px);
+  }
   select {
     width: 100%;
     padding: 20px 10px;
@@ -102,7 +107,9 @@ export const SearchContainer = styled.div`
   padding: 20px;
   margin: 0 20px;
   width: 80%;
-
+  @media (max-width: 600px){
+      width: calc(100% - 40px);
+  }
   input {
     border: none;
     outline: none;
@@ -129,6 +136,7 @@ export const ButtonsContainer = styled.div`
   position: absolute;
   bottom: 20px;
   width: 100%;
+  left: 0px;
 `;
 
 export const MovieCard = styled.div`
@@ -194,8 +202,14 @@ export const PreviewContainer = styled.div`
     box-shadow: 0 0 0 150px #091821;
     display: none;
     position: fixed;
+    
     &.active{
       display: block;
+    }
+    @media (max-width: 600px) {
+      margin: 10px;
+      width: calc(100% - 20px);
+      height: calc(100vh - 20px);
     }
     .previewDetails{
       display: flex;
@@ -206,14 +220,33 @@ export const PreviewContainer = styled.div`
       text-align: left;
       align-items: flex-start;
       background-image: url(http://smartwpress.com/lucille4/wp-content/uploads/2017/01/dark-background.jpg);
+
+      @media (max-width: 600px) {
+        padding: 0px 20px;
+      }
+    }
+    img{
+      @media (max-width: 600px) {
+
+      width: 100%;
+    height: 200px;
+    object-fit: contain;
+      }
     }
     h3{
       width: 100%;
       text-align: center;
       font-size: 30px;
+      @media (max-width: 600px) {
+        font-size: 16px;
+      margin-top: 30px;
+      }
     }
     p{
       margin-top: 20px;
+      @media (max-width: 600px) {
+        margin-top: 10px;
+      }
     }
     .goBackBtn {
       position: absolute;
@@ -230,5 +263,11 @@ export const PreviewContainer = styled.div`
       height: 40px;
       font-size: 22px;
       cursor: pointer;
+      @media (max-width: 600px) {
+        top: 10px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+      }
     }
 `
