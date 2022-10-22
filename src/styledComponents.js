@@ -106,10 +106,8 @@ export const SearchContainer = styled.div`
   border: 1px solid lightgray;
   padding: 20px;
   margin: 0 20px;
-  width: 80%;
-  @media (max-width: 600px){
-      width: calc(100% - 40px);
-  }
+  flex: 1;
+  
   input {
     border: none;
     outline: none;
@@ -156,12 +154,8 @@ flex: 1 1 300px;
 position: relative;
 background: rgba(8,26,36,0.8);
 border-radius: 5px;
-}
+max-width: 320px;
 
-  &:only-child {
-    margin: 20px auto;
-    max-width: 500px;
-  }
   p {
     margin-bottom: 10px;
     text-align: justify;

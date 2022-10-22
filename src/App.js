@@ -91,7 +91,7 @@ const App = () => {
   useEffect(() => {
     async function fetchMovies() {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=5dcf7f28a88be0edc01bbbde06f024ab&language=en-US&query=marvel&movie?sort_by=popularity&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/movie?api_key=5dcf7f28a88be0edc01bbbde06f024ab&language=en-US&query=a&movie?sort_by=popularity&page=1&include_adult=false`
       );
       setMovies(response.data.results);
     }
@@ -113,7 +113,7 @@ const App = () => {
             </NavLink>
             <NavLink
               className={activeLink === "favorites" ? "activeLink" : ""}
-              onClick={() => (setActiveLink("favorites"), setQuery(''))}
+              onClick={() => [setActiveLink("favorites"), setQuery('')]}
               to="/favorites"
             >
               Favorites

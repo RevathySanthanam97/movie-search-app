@@ -22,14 +22,14 @@ const SearchBar = ({ handleSearch, handleSort }) => {
         <input type="text" placeholder="search" onChange={searchValue} />
         <i className="fas fa-search"></i>
       </SearchContainer>
-      <SortContainer>
+      {/* <SortContainer>
         <select onChange={sortData}>
           <option value="title">A-Z</option>
           <option value="vote_average">Rating</option>
           <option value="popularity">Popularity</option>
           <option value="release_date">Released</option>
         </select>
-      </SortContainer>
+      </SortContainer> */}
     </FeaturesBar>
   );
 };

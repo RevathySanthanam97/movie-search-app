@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const Favorites = ({ data, handleFavClick,handlePrevClick, favHeart }) => {
   return (
     <div>
-      {data != "" ? (
+      {data !== "" ? (
         <MovieCards
           data={data}
           favHeart={favHeart}
